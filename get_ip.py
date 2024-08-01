@@ -79,20 +79,20 @@ def ip_print(path_to_json):
         print(f"An unexpected error occurred: {e}")
 
 
-def is_valid_ip(ip):
+def is_valid_ip(ip_addr):
     """
     Validates an IP address.
 
     The function checks if the given string is a valid IP address.
 
     Args:
-        ip (str): The IP address to be validated.
+        ip_addr (str): The IP address to be validated.
 
     Returns:
         bool: True if the IP address is valid, False otherwise.
     """
     try:
-        ipaddress.ip_address(ip)
+        ipaddress.ip_address(ip_addr)
         return True
     except ValueError:
         return False
