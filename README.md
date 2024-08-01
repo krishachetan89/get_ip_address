@@ -15,8 +15,5 @@ This will automatically add all required dependencies to run the project
 '''
 python3 get_ip.py input1.json
 '''
-'''
-python3 get_ip.py input2.json
-'''
 
 
