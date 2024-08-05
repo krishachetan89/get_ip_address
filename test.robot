@@ -1,8 +1,9 @@
 *** Settings ***
-Library    get_ip.py
-
+Library    OperatingSystem
+Library    Process
 *** Test Cases ***
-Setting Variables
-    ${result}=   get_ip.filename
-    Should be equal as integers    ${result.rc}    0
-    Should be equal as strings    ${result.stdout}   192.168.101.101
+Verify in robot
+    ${result}=    Run Process    python3     get_ip.py    input1.json    shell=True    stdout=PIPE    stderr=PIPE
+    Should Be Equal    ${result.rc}    0
+    ${output}=    Get File    ${result.stdout}
+    should be equal as numbers    ${output}    192.168.101.101

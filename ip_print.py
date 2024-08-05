@@ -28,8 +28,6 @@ def ip_print(path_to_json):
         FileNotFoundError: If the specified file is not found.
         json.JSONDecodeError: If there is an error decoding the JSON data.
         KeyError: If required keys are missing in the JSON data.
-        TypeError: If the data types in the JSON file are not as expected.
-        ValueError: If an invalid IP address is detected.
         Exception: For any other unexpected errors.
     Note: Any other uncaught exceptions are handled by try catch block
     """
@@ -69,12 +67,6 @@ def ip_print(path_to_json):
     except KeyError as e:
         print(f"Key error, Check if keys are correct: {e}")
         sys.exit(1)
-    except TypeError as e:
-        print(f"Type error: {e}")
-
-    except ValueError as e:
-        print(f"Value error: {e}")
-
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
 
@@ -100,12 +92,15 @@ def is_valid_ip(ip_addr):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("User input error: Check if you are providing in following way: python extract_ips.py <filename>")
+        print("User input error: Check if you are providing in following way: python ip_print.py <filename>")
         sys.exit(1)
 
     filename = sys.argv[1]
     ip_addresses = ip_print(filename)
 
     print("Please find below extracted IP addresses from the file:")
-    for ip in ip_addresses:
-        print(ip)
+    if ip_addresses is None:
+        print("Wrong ip address detected, Check your ip address and correct it")
+    else:
+        for ip in ip_addresses:
+            print(ip)

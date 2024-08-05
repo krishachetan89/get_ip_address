@@ -1,0 +1,10 @@
+{
+"vm_private_ips": {
+    "sensitive": false,
+    "type": "random",
+    "value": {
+        "hello": "192.168.101.101",
+        "wrong_ip": "999.9393939.9399192"
+    }
+  }
+}
