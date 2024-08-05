@@ -1,0 +1,11 @@
+{
+"vm_private_ips": {
+    "sensitive": false,
+    "type": "map",
+    "value": {
+        "jenkins-agent-vm-1": "hello,im,wrong,ip",
+        "jenkins-agent-vm-2": "Glad,you,Found,me",
+        "jenkins-agent-vm-3": "Code,seems,working"
+    }
+  }
+}
